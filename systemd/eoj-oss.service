@@ -1,0 +1,14 @@
+[Unit]
+Description=EOJ oss service
+After=network.target
+
+[Service]
+ExecStart=/opt/eoj/bin/oss -conf=/etc/eoj/settings.yaml -logs=/opt/eoj/logs/oss
+WorkingDirectory=/opt/eoj
+StandardOutput=null
+KillMode=process
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target

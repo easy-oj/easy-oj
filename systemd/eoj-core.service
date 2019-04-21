@@ -1,0 +1,14 @@
+[Unit]
+Description=EOJ core service
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/java -jar /opt/eoj/bin/core.jar --spring.config.additional-location=/etc/eoj/settings.yaml --logging.file=/opt/eoj/logs/core/eoj.core.log
+WorkingDirectory=/opt/eoj
+StandardOutput=null
+KillMode=process
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target

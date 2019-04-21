@@ -1,0 +1,37 @@
+mysql:
+  host: localhost
+  port: 3306
+  username: username
+  password: password
+  database: db_eoj
+redis:
+  host: localhost
+  port: 6379
+core:
+  http:
+    port: 8080
+repos:
+  hosts:
+    - localhost
+  port: 3000
+  http:
+    port: 8090
+    log: false
+  path: /dev/shm/eoj/repos
+oss:
+  hosts:
+    - localhost
+  port: 3100
+  backend: file:///opt/eoj/oss
+queue:
+  hosts:
+    - localhost
+  port: 3200
+judger:
+  # worker: 8
+  path: /dev/shm/eoj/judger
+  docker: unix:///var/run/docker.sock
+path:
+  git: /usr/bin/git
+  tar: /bin/tar
+  executor: /opt/eoj/bin/executor

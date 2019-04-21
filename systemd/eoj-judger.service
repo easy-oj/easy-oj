@@ -1,0 +1,14 @@
+[Unit]
+Description=EOJ judger service
+After=network.target
+
+[Service]
+ExecStart=/opt/eoj/bin/judger -conf=/etc/eoj/settings.yaml -logs=/opt/eoj/logs/judger
+WorkingDirectory=/opt/eoj
+StandardOutput=null
+KillMode=process
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,14 @@
+[Unit]
+Description=EOJ queue service
+After=network.target
+
+[Service]
+ExecStart=/opt/eoj/bin/queue -conf=/etc/eoj/settings.yaml -logs=/opt/eoj/logs/queue
+WorkingDirectory=/opt/eoj
+StandardOutput=null
+KillMode=process
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=multi-user.target
