@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 wget https://ci.moekr.com/job/easy-oj/lastSuccessfulBuild/artifact/eoj-linux-amd64.tar.gz && \
-    tar xzvf eoj-linux-amd64.tar.gz && \
+    tar xzf eoj-linux-amd64.tar.gz && \
     rm eoj-linux-amd64.tar.gz
 
 mv eoj-linux-amd64/bin/core.jar /opt/eoj/bin/core.jar
@@ -10,6 +10,9 @@ mv eoj-linux-amd64/bin/oss /opt/eoj/bin/oss
 mv eoj-linux-amd64/bin/queue /opt/eoj/bin/queue
 mv eoj-linux-amd64/bin/judger /opt/eoj/bin/judger
 mv eoj-linux-amd64/bin/executor /opt/eoj/bin/executor
+mv /opt/eoj/static /opt/eoj/static.upgrade.bak && \
+    mv eoj-linux-amd64/static /opt/eoj/static && \
+    rm -rf /opt/eoj/static.upgrade.bak
 
 rm -rf eoj-linux-amd64
 
